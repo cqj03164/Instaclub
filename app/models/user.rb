@@ -57,6 +57,8 @@ class User < ActiveRecord::Base
     end
   end
   
-  
+  def destroy
+    redirect_to insta3s_path
+  end
   
 end

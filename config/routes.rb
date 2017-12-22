@@ -17,11 +17,11 @@ Rails.application.routes.draw do
    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
   
+  root :to => 'insta3s#index'
   
   
   
-  
-  #get 'insta3s' => 'insta3s#index' 
+  get 'insta3s' => 'insta3s#index' 
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
