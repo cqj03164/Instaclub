@@ -1,29 +1,41 @@
-<h1>Insta3s#index</h1>
-
-<section class="main-header">
+<div class="body">
   <p class="flash"><%= notice %><%= alert %></p>
-  <img src="<%= asset_path "insta3.png" %>">
-</section>
+  <img src="<%= asset_path "insta-mail.jpg" %>">
+</div>
+
 
 <div class="container">
   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
-    <p><%= notice %></p>
+  <p><%= notice %></p>
+  <button type="button" class="btn btn-primary btn-lg"><%= link_to "投稿する", new_insta3_path %></button>
 
-     <%= link_to "投稿する", new_insta3_path, class: 'btn btn-default' %>
 
+    
     <% @Insta3s.each do |insta3| %>
 
+　　　<div style="background-color:#a9a9a9;color:#ffffff">タイトル</div>
+
     <div class="row">
-          <h>タイトル</h>
       <h4><strong><%= insta3.title %></strong></h4>
-          <h>コメント</h>
+      
+　　　<div style="background-color:#a9a9a9;color:#ffffff">画像</div>
+
+
+      <p><%= image_tag(insta3.image)  %></p>
+        <%#= hidden_field_tag :"cache[image]", @insta3.image.cache_name %>
+
+
+　　　<div style="background-color:#a9a9a9;color:#ffffff">コメント</div>
+
       <p><%= insta3.content %></p>
-          <h>投稿者</h>
+
+　　　<div style="background-color:#a9a9a9;color:#ffffff">投稿者</div>
+
       <p><%= insta3.user.name if insta3.user %></p>
      
       
-      <%= link_to "編集", edit_insta3_path(insta3.id), class: 'btn btn-default btn-sm btn-success' %>
-      <%= link_to "削除", insta3_path(insta3.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+        <button type="button" class="btn btn-primary btn-lg"><%= link_to "編集", edit_insta3_path(insta3.id), class: 'btn btn-default btn-sm btn-success' %></button>
+        <button type="button" class="btn btn-primary btn-lg"><%= link_to "削除", insta3_path(insta3.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %></button>
 
     <% end %>
     </div>

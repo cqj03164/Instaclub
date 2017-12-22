@@ -2,15 +2,22 @@
   <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
 
    <h3>以下の内容で、送信する。</h3>
-    <%= form_for(@insta3) do |f| %>
+    <%= form_for(@insta3, url: insta3s_path) do |f| %>
       <%= f.hidden_field :title %>
+      <%= f.hidden_field :image %>
       <%= f.hidden_field :content %>
       <p>タイトル:<%= @insta3.title %></p>
+      <p>画像:<%= @insta3.image %></p>
+     
+      
       <p>コメント:<%= @insta3.content %></p>
-　　　<%= f.submit "投稿",class: 'btn btn-primary btn-block' %>
-    <% end %>
+      <%= f.submit "登録", class: 'btn btn-primary btn-block' %>
+    
+   <% end %>
+      
     <%= form_for(@insta3, url: new_insta3_path, method: 'get') do |f| %>
       <%= f.hidden_field :title %>
+      <%= f.hidden_field :image %>
       <%= f.hidden_field :content %>
       <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
     <% end %>

@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :insta3s, only: [:index, :new, :create, :edit, :update ,:destroy] do
     collection do
       post :confirm
     end
   end
   
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+  
+  
   if Rails.env.development?
    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+  
+  
+  
+  
   
   #get 'insta3s' => 'insta3s#index' 
   

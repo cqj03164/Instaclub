@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+　<div class="header">
         <% if user_signed_in? %>
          <li><%= link_to 'マイページ', edit_user_registration_path %></li>
          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
@@ -15,8 +15,15 @@
          <li><%= link_to 'ログイン', new_user_session_path  %></li>
          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
          <% end %>
-
+ </div>
 <%= yield %>
 
 </body>
+
+<footer class="footer">
+    <p align = center>営業企画部　伊藤</p>
+    <p align = center>©2017 Copy-Free</p>
+  </footer>
+</body>
 </html>
+
